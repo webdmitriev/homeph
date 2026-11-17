@@ -12,10 +12,23 @@ struct SplashView: View {
 
     var body: some View {
         VStack {
-            Text("SplashView")
+            Spacer()
+            
+            Image("logotype")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 230)
+            
+            Spacer()
+            
+            Text("Version 1.0")
+                .frame(maxWidth: .infinity)
+                .font(.system(size: 14, weight: .regular))
+                .foregroundStyle(.appBlack.opacity(0.7))
         }
+        .padding(.horizontal, AppConstants.Layout.offsetPage)
         .task {
-            try? await Task.sleep(for: .seconds(10.8))
+            try? await Task.sleep(for: .seconds(1.8))
             self.onFinish()
         }
     }
