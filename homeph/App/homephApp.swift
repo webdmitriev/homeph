@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct homephApp: App {
+struct HomephApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }
