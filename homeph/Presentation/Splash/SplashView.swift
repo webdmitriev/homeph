@@ -15,8 +15,8 @@ struct SplashView: View {
             Text("SplashView")
         }
         .task {
-            try? await Task.sleep(for: .seconds(1.5))
-            onFinish()
+            try? await Task.sleep(for: .seconds(10.8))
+            self.onFinish()
         }
     }
 }
