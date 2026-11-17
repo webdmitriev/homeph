@@ -9,29 +9,12 @@ import SwiftUI
 
 struct OnboardingView: View {
     let onComplete: () -> Void
+    let vm = OnboardingViewModel()
 
     @State private var currentPage = 0
 
-    private let pages: [OnboardingPage] = [
-        OnboardingPage(
-            image: "house.fill",
-            title: "Найди жильё мечты",
-            subtitle: "Дома и апартаменты по всем Филиппинам — от Манилы до Боракая"
-        ),
-        OnboardingPage(
-            image: "calendar.badge.clock",
-            title: "Бронируй в пару касаний",
-            subtitle: "Выбирай даты, смотри реальные цены и бронируй без звонков"
-        ),
-        OnboardingPage(
-            image: "message.fill",
-            title: "Общайся с хозяевами",
-            subtitle: "Задавай вопросы напрямую и получай ответы в чате"
-        )
-    ]
-
     private var isLastPage: Bool {
-        currentPage == pages.count - 1
+        currentPage == vm.onboardingItems.count - 1
     }
 
     var body: some View {
@@ -50,7 +33,7 @@ struct OnboardingView: View {
 
             // Страницы
             TabView(selection: $currentPage) {
-                ForEach(Array(pages.enumerated()), id: \.element.id) { index, page in
+                ForEach(Array(vm.onboardingItems.enumerated()), id: \.element.id) { index, page in
                     OnboardingPageView(page: page)
                         .tag(index)
                 }
@@ -78,6 +61,9 @@ struct OnboardingView: View {
             .padding(.horizontal, 24)
             .padding(.bottom, 24)
         }
+        .task {
+            await vm.loadOnboardingItems()
+        }
     }
 }
 
@@ -88,10 +74,9 @@ private struct OnboardingPageView: View {
         VStack(spacing: 24) {
             Spacer()
 
-            Image(systemName: page.image)
-                .font(.system(size: 80))
-                .foregroundStyle(.blue)
-                .symbolRenderingMode(.hierarchical)
+            Image(page.image)
+                .resizable()
+                .scaledToFill()
 
             Text(page.title)
                 .font(.title.bold())
@@ -104,7 +89,6 @@ private struct OnboardingPageView: View {
                 .padding(.horizontal, 32)
 
             Spacer()
-            Spacer() // компенсация высоты индикатора страниц
         }
     }
 }
