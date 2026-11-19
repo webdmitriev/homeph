@@ -16,9 +16,12 @@ final class MockOnboardingManager: OnboardingNetworkProtocol {
     }
     
     static let mockData: [OnboardingPage] = [
-        OnboardingPage(image: "onboarding-01", title: "Title 01", subtitle: "Description 01"),
-        OnboardingPage(image: "onboarding-02", title: "Title 02", subtitle: "Description 02"),
-        OnboardingPage(image: "onboarding-03", title: "Title 03", subtitle: "Description 03"),
+        OnboardingPage(image: "onboarding-01", title: "Best place to rest your body",
+                       subtitle: "Find your ideal place to sleep, eat and feel like home. Don't be shy, we are expecting your honesty"),
+        OnboardingPage(image: "onboarding-02", title: "Home is where you find comfort.",
+                       subtitle: "Make yourself at home and find your own comfort. The least you find comfort is our failure."),
+        OnboardingPage(image: "onboarding-03", title: "Find place. Create healthy mind",
+                       subtitle: "It's about how you sleep. With our help, you will be also to find zen in the hardest environment."),
     ]
 }
 

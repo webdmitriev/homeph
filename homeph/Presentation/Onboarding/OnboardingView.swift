@@ -17,78 +17,66 @@ struct OnboardingView: View {
         currentPage == vm.onboardingItems.count - 1
     }
 
-    var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Spacer()
-                if !isLastPage {
-                    Button("Пропустить") {
-                        onComplete()
-                    }
-                    .foregroundStyle(.secondary)
-                    .padding()
-                }
-            }
-            .frame(height: 56)
+    private var currentItem: OnboardingPage? {
+        guard vm.onboardingItems.indices.contains(currentPage) else { return nil }
+        return vm.onboardingItems[currentPage]
+    }
 
-            // Страницы
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            // MARK: Фон — картинка на весь экран
             TabView(selection: $currentPage) {
                 ForEach(Array(vm.onboardingItems.enumerated()), id: \.element.id) { index, page in
-                    OnboardingPageView(page: page)
+                    Image(page.image)
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea()
                         .tag(index)
                 }
             }
-            .tabViewStyle(.page(indexDisplayMode: .always))
-            .indexViewStyle(.page(backgroundDisplayMode: .always))
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .ignoresSafeArea()
 
-            // Нижняя кнопка
-            Button {
-                if isLastPage {
-                    onComplete()
-                } else {
-                    withAnimation {
-                        currentPage += 1
+            // MARK: Общий контент поверх фона
+            VStack(spacing: 16) {
+                // Точки-индикатор
+                HStack(spacing: 8) {
+                    ForEach(0..<vm.onboardingItems.count, id: \.self) { index in
+                        Circle()
+                            .fill(index == currentPage ? Color.appGreen : Color.appGreen.opacity(0.3))
+                            .frame(width: 8, height: 8)
                     }
                 }
-            } label: {
-                Text(isLastPage ? "Начать" : "Далее")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 52)
-                    .background(.blue, in: RoundedRectangle(cornerRadius: 14))
+                .padding(.bottom, 24)
+
+                Text(currentItem?.title ?? "")
+                    .onboardingTitle()
+
+                Text(currentItem?.subtitle ?? "")
+                    .onboardingSubTitle()
+
+                Button(isLastPage ? "Get Started" : "Next") {
+                    if isLastPage {
+                        onComplete()
+                    } else {
+                        withAnimation {
+                            currentPage += 1
+                        }
+                    }
+                }
+                .buttonStyle(.app())
+                .padding(.top, 24)
             }
             .padding(.horizontal, 24)
-            .padding(.bottom, 24)
+            .padding(.vertical, 24)
+            .background {
+                UnevenRoundedRectangle(cornerRadii: .init(topLeading: 48))
+                    .fill(.white)
+                    .ignoresSafeArea(edges: .bottom)
+            }
         }
         .task {
             await vm.loadOnboardingItems()
-        }
-    }
-}
-
-private struct OnboardingPageView: View {
-    let page: OnboardingPage
-
-    var body: some View {
-        VStack(spacing: 24) {
-            Spacer()
-
-            Image(page.image)
-                .resizable()
-                .scaledToFill()
-
-            Text(page.title)
-                .font(.title.bold())
-                .multilineTextAlignment(.center)
-
-            Text(page.subtitle)
-                .font(.body)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
-
-            Spacer()
         }
     }
 }

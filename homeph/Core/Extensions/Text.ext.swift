@@ -8,5 +8,17 @@
 import SwiftUI
 
 extension Text {
+    func onboardingTitle() -> some View {
+        self
+            .font(.system(size: 32, weight: .bold))
+            .multilineTextAlignment(.center)
+            .foregroundStyle(.appBlack)
+    }
     
+    func onboardingSubTitle() -> some View {
+        self
+            .font(.system(size: 17, weight: .regular))
+            .multilineTextAlignment(.center)
+            .foregroundStyle(.appGray)
+    }
 }
