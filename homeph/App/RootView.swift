@@ -31,7 +31,7 @@ struct RootView: View {
                     flow = .main
                 }
             case .main:
-                HomeView()
+                TabPagesView()
             }
         }
         .animation(.easeInOut(duration: 0.3), value: flow)
