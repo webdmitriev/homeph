@@ -16,6 +16,18 @@ struct OnboardingView: View {
     private var isLastPage: Bool {
         currentPage == vm.onboardingItems.count - 1
     }
+    
+    private var panelCornerRadii: RectangleCornerRadii {
+        let radius: CGFloat = 48
+
+        if currentPage == 0 {
+            return .init(topLeading: radius)
+        } else if isLastPage {
+            return .init(topTrailing: radius)
+        } else {
+            return .init()
+        }
+    }
 
     private var currentItem: OnboardingPage? {
         guard vm.onboardingItems.indices.contains(currentPage) else { return nil }
@@ -70,10 +82,11 @@ struct OnboardingView: View {
             .padding(.horizontal, 24)
             .padding(.vertical, 24)
             .background {
-                UnevenRoundedRectangle(cornerRadii: .init(topLeading: 48))
+                UnevenRoundedRectangle(cornerRadii: panelCornerRadii)
                     .fill(.white)
                     .ignoresSafeArea(edges: .bottom)
             }
+            .animation(.easeInOut(duration: 0.3), value: currentPage)
         }
         .task {
             await vm.loadOnboardingItems()
