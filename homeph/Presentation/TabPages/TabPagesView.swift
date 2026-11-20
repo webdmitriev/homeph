@@ -29,7 +29,7 @@ struct TabPagesView: View {
                 HomeView()
                     .mainTabBar(visible: isRegularScreen)
                     .tag(TabPages.home)
-                    .tabItem { Label("Home", image: "") }
+                    .tabItem { Label("Home", image: "tabbar-home") }
             }
         }
     }
