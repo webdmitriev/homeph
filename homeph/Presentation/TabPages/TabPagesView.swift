@@ -59,6 +59,9 @@ struct TabPagesView: View {
                         .frame(maxWidth: .infinity)
                     }
                 }
+                .padding(.top, 12)
+                .background(.white)
+                .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: -4)
             }
         }
     }
