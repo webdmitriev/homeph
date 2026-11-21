@@ -49,7 +49,7 @@ struct TabPagesView: View {
             if !isRegularScreen {
                 HStack(spacing: 0) {
                     ForEach(TabPages.allCases) { page in
-                        TabButtonComponentView(
+                        TabButtonView(
                             imageIcon: page.icon,
                             title: page.title,
                             active: selectionPage == page

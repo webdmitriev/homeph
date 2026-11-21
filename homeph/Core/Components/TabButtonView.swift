@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabButtonComponentView: View {
+struct TabButtonView: View {
     var imageIcon: String
     var title: String
     var active: Bool
