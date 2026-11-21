@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Apartment: Identifiable {
+struct Apartment: Identifiable, Codable {
     let id: String
     let thumbnail: String
     let title: String
@@ -25,7 +25,7 @@ struct Apartment: Identifiable {
     let facilities: [Facility]
 }
 
-struct ApartmentSpecs {
+struct ApartmentSpecs: Codable {
     let guests: Int
     let bedrooms: Int
     let beds: Int
@@ -33,24 +33,24 @@ struct ApartmentSpecs {
     let area: Double
 }
 
-struct ApartmentOwner {
+struct ApartmentOwner: Codable {
     let name: String
     let avatar: String
     let phone: String
 }
 
-struct ApartmentReview: Identifiable {
-    let id: String = UUID().uuidString
+struct ApartmentReview: Identifiable, Codable {
+    let id: String
     let name: String
     let review: String
 }
 
-struct ApartmentGeoCoordinate {
+struct ApartmentGeoCoordinate: Codable {
     let latitude: Double
     let longitude: Double
 }
 
-enum Facility: String, CaseIterable, Identifiable {
+enum Facility: String, CaseIterable, Identifiable, Codable {
     case wifi, pool, parking, airConditioning, kitchen, tv, washer, beachAccess
 
     var id: String { rawValue }
