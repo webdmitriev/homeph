@@ -32,13 +32,21 @@ HomePH/
 │   │   ├── Text.ext.swift   // функции вывода текстов
 │   └── └── View.ext.swift   // функция для таббара
 ├── Data/
+│   ├── Mock/
+│   │   └── MockApartments.swift   // mock данные
 │   ├── Network/
 │   │   ├── Onboarding/
 │   │   │   ├── MockOnboardingManager.swift   // mock данные
-│   └── └── └── OnboardingNetworkProtocol.swift   // протокол
+│   │   └── └── OnboardingNetworkProtocol.swift   // протокол
+│   │   Repositories/
+│   └── └── └── NetworkApartmentRepository.swift
 ├── Domain/
 │   ├── Entities/
-│   └── └── Onboarding.swift
+│   │   ├── Apartment.swift
+│   │   └── Onboarding.swift
+│   ├── Repositories/
+│   │   ├── ApartmentRepository.swift
+│   └── └── MockApartmentRepository.swift
 ├── Presentation/
 │   ├── Discover/   👨‍💻
 │   ├── Favourite/  👨‍💻
