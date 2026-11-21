@@ -22,6 +22,8 @@ HomePH/
 ├── Core/
 │   ├── Components
 │   │   ├── HeaderView.swift
+│   │   ├── SearchButtonView.swift
+│   │   ├── SearchFieldView.swift
 │   │   └── TabButtonView.swift   // таббар кнопка
 │   ├── Constants
 │   │   └── AppConstants.swift   // глобальные переменные
@@ -44,6 +46,7 @@ HomePH/
 │   ├── Messages/   👨‍💻
 │   ├── Onboarding/ 👨‍💻
 │   ├── Profile/    👨‍💻
+│   ├── Search/     👨‍💻
 │   ├── Splash/     ✅
 └── └── TabPages/   ✅
 ```
