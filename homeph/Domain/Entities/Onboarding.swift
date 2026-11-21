@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OnboardingPage: Identifiable {
+struct Onboarding: Identifiable {
     let id = UUID()
     let image: String
     let title: String

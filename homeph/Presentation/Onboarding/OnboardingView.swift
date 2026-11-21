@@ -29,7 +29,7 @@ struct OnboardingView: View {
         }
     }
 
-    private var currentItem: OnboardingPage? {
+    private var currentItem: Onboarding? {
         guard vm.onboardingItems.indices.contains(currentPage) else { return nil }
         return vm.onboardingItems[currentPage]
     }

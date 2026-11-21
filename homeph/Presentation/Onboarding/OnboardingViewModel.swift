@@ -15,7 +15,7 @@ final class OnboardingViewModel {
         self.network = network
     }
     
-    var onboardingItems: [OnboardingPage] = []
+    var onboardingItems: [Onboarding] = []
     
     func loadOnboardingItems() async {
         self.onboardingItems = (try? await network.fetchItems()) ?? []

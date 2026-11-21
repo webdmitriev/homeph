@@ -8,5 +8,5 @@
 import Foundation
 
 protocol OnboardingNetworkProtocol: Sendable {
-    func fetchItems() async throws -> [OnboardingPage]
+    func fetchItems() async throws -> [Onboarding]
 }
