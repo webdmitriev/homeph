@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-            Text("HomeView")
+        ScrollView {
+            HeaderView(title: "Find you best real estate now")
         }
     }
 }

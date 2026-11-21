@@ -21,4 +21,10 @@ extension Text {
             .multilineTextAlignment(.center)
             .foregroundStyle(.appGray)
     }
+    
+    func headerTitle() -> some View {
+        self
+            .font(.system(size: 28, weight: .bold))
+            .foregroundStyle(.appBlack)
+    }
 }

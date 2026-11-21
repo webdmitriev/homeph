@@ -14,16 +14,11 @@ enum TabPages: String, CaseIterable, Identifiable, Hashable {
     
     var title: String {
         switch self {
-        case .home:
-            "Home"
-        case .discover:
-            "Discover"
-        case .favourite:
-            "Favourite"
-        case .messages:
-            "Messages"
-        case .profile:
-            "Profile"
+        case .home: "Home"
+        case .discover: "Discover"
+        case .favourite: "Favourite"
+        case .messages: "Messages"
+        case .profile: "Profile"
         }
     }
     
