@@ -34,6 +34,8 @@ HomePH/
 │   │   │   ├── MockOnboardingManager.swift   // mock данные
 │   └── └── └── OnboardingNetworkProtocol.swift   // протокол
 ├── Domain/
+│   ├── Entities/
+│   └── └── Onboarding.swift
 ├── Presentation/
 │   ├── Discover/   👨‍💻
 │   ├── Favourite/  👨‍💻
