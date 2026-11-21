@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack(path: $path) {
             ScrollView {
-                VStack(spacing: 16) {
+                VStack(spacing: 20) {
                     HeaderView(title: "Find you best real estate now")
                     
                     SearchButtonView(path: $path)
