@@ -22,7 +22,7 @@ HomePH/
 ├── Core/
 │   ├── Components
 │   │   ├── HeaderView.swift
-│   │   └── TabButtonComponentView.swift   // таббар кнопка
+│   │   └── TabButtonView.swift   // таббар кнопка
 │   ├── Constants
 │   │   └── AppConstants.swift   // глобальные переменные
 │   ├── Extensions
