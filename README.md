@@ -21,6 +21,7 @@ HomePH/
 │   └── RootView.swift   // точка входа
 ├── Core/
 │   ├── Components
+│   │   ├── HeaderView.swift
 │   │   └── TabButtonComponentView.swift   // таббар кнопка
 │   ├── Constants
 │   │   └── AppConstants.swift   // глобальные переменные
