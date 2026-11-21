@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var path = NavigationPath()
+    @State private var vm = HomeViewModel()
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -17,6 +18,12 @@ struct HomeView: View {
                     HeaderView(title: "Find you best real estate now")
                     
                     SearchButtonView(path: $path)
+                    
+                    ForEach(vm.apartments) { item in
+                        Text(item.title)
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundStyle(.appBlack)
+                    }
 
                     Spacer()
                 }
@@ -26,6 +33,9 @@ struct HomeView: View {
                     }
                 }
             }
+        }
+        .task {
+            await vm.allApartments()
         }
     }
 }

@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+@Observable
+final class HomeViewModel {
+    let apartmentRepository: ApartmentRepository = MockApartmentRepository()
+    var apartments: [Apartment] = []
+
+    func allApartments() async {
+        self.apartments = (try? await apartmentRepository.fetchApartments()) ?? []
+    }
+}
