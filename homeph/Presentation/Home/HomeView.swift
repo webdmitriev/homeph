@@ -22,7 +22,7 @@ struct HomeView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(alignment: .top, spacing: 16) {
                             ForEach(vm.apartments) { item in
-                                CardView(apartment: item)
+                                CardView(apartment: item, style: .short)
                             }
                         }
                         .padding(.horizontal, AppConstants.Layout.offsetPage)

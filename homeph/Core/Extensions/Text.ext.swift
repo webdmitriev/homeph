@@ -29,11 +29,11 @@ extension Text {
     }
     
     // MARK: Card
-    func cardTitle() -> some View {
+    func cardTitle(isFixHeight: Bool = true) -> some View {
         self
             .font(.system(size: 22, weight: .bold))
             .foregroundStyle(.appBlack)
-            .frame(maxWidth: .infinity, minHeight: 58, alignment: .topLeading)
+            .frame(maxWidth: .infinity, minHeight: isFixHeight ? 58 : nil, alignment: .topLeading)
     }
 
     func cardPrice() -> some View {

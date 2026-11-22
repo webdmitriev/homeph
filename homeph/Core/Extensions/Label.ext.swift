@@ -10,7 +10,7 @@ import SwiftUI
 extension Label where Title == Text, Icon == Image {
     func cardRating() -> some View {
         self
-            .font(.system(size: 20, weight: .bold))
+            .font(.system(size: 17, weight: .bold))
             .foregroundStyle(.appYellow)
     }
     

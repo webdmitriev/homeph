@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+enum CardStyle {
+    case short
+    case bigger
+}
+
 struct CardView: View {
     var apartment: Apartment
+    var style: CardStyle = .short
     
     var body: some View {
         VStack(spacing: 0) {
@@ -17,7 +23,8 @@ struct CardView: View {
                     .resizable()
                     .scaledToFill()
             }
-            .frame(height: 140)
+            .frame(height: style == .short ? 140 : 200)
+            .clipShape(RoundedRectangle(cornerRadius: style == .short ? 0 : AppConstants.Layout.brsCard))
             .clipped()
             .overlay(alignment: .topTrailing, content: {
                 Button {
@@ -38,7 +45,7 @@ struct CardView: View {
             
             VStack(spacing: 8) {
                 HStack(spacing: 8) {
-                    HStack(spacing: 2) {
+                    HStack(alignment: .bottom, spacing: 2) {
                         Text("$\(apartment.price)")
                             .cardPrice()
                         
@@ -54,7 +61,7 @@ struct CardView: View {
                 .frame(maxWidth: .infinity)
                 
                 Text(apartment.title)
-                    .cardTitle()
+                    .cardTitle(isFixHeight: style == .short)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(2)
                 
@@ -62,12 +69,12 @@ struct CardView: View {
                     .cardAddress()
             }
             .frame(maxWidth: .infinity)
-            .padding(.horizontal, AppConstants.Layout.offsetPage)
+            .padding(.horizontal, style == .short ? AppConstants.Layout.offsetPage : 0)
             .padding(.vertical, 12)
         }
-        .frame(width: 280)
+        .frame(maxWidth: style == .short ? 280 : .infinity)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.Layout.brsCard))
-        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 4)
+        .shadow(color: .black.opacity(style == .short ? 0.08 : 0), radius: 8, x: 0, y: 4)
     }
 }
