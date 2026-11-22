@@ -21,6 +21,7 @@ HomePH/
 │   └── RootView.swift   // точка входа
 ├── Core/
 │   ├── Components
+│   │   ├── CardView.swift
 │   │   ├── HeaderView.swift
 │   │   ├── SearchButtonView.swift
 │   │   ├── SearchFieldView.swift
@@ -29,6 +30,7 @@ HomePH/
 │   │   └── AppConstants.swift   // глобальные переменные
 │   ├── Extensions
 │   │   ├── Button.ext.swift   // переиспольщуемая кнопка
+│   │   ├── Label.ext.swift   // функции вывода текстов
 │   │   ├── Text.ext.swift   // функции вывода текстов
 │   └── └── View.ext.swift   // функция для таббара
 ├── Data/
