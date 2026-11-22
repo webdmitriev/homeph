@@ -19,10 +19,14 @@ struct HomeView: View {
                     
                     SearchButtonView(path: $path)
                     
-                    ForEach(vm.apartments) { item in
-                        Text(item.title)
-                            .font(.system(size: 20, weight: .medium))
-                            .foregroundStyle(.appBlack)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(alignment: .top, spacing: 16) {
+                            ForEach(vm.apartments) { item in
+                                CardView(apartment: item)
+                            }
+                        }
+                        .padding(.horizontal, AppConstants.Layout.offsetPage)
+                        .padding(.vertical, 16)
                     }
 
                     Spacer()

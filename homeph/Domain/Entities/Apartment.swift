@@ -15,7 +15,7 @@ struct Apartment: Identifiable, Codable {
     let coordinate: ApartmentGeoCoordinate
     let images: [String]?
     let address: String
-    let rating: Double
+    let rating: Float
     let reviews: [ApartmentReview]
     let price: Int
     let currency: String
