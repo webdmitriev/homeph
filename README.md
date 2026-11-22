@@ -21,7 +21,7 @@ HomePH/
 │   └── RootView.swift   // точка входа
 ├── Core/
 │   ├── Components
-│   │   ├── CardView.swift
+│   │   ├── CardView.swift // two styles (short, bigger)
 │   │   ├── HeaderView.swift
 │   │   ├── SearchButtonView.swift
 │   │   ├── SearchFieldView.swift
