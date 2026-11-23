@@ -41,14 +41,14 @@ HomePH/
 │   │   │   ├── MockOnboardingManager.swift   // mock данные
 │   │   └── └── OnboardingNetworkProtocol.swift   // протокол
 │   │   Repositories/
-│   └── └── └── NetworkApartmentRepository.swift
+│   │   ├── ├── NetworkApartmentRepository.swift
+│   └── └── └── MockApartmentRepository.swift
 ├── Domain/
 │   ├── Entities/
 │   │   ├── Apartment.swift
 │   │   └── Onboarding.swift
 │   ├── Repositories/
-│   │   ├── ApartmentRepository.swift
-│   └── └── MockApartmentRepository.swift
+│   └── └── ApartmentRepository.swift
 ├── Presentation/
 │   ├── Discover/   👨‍💻
 │   ├── Favourite/  👨‍💻
