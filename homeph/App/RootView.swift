@@ -21,7 +21,7 @@ struct RootView: View {
             switch flow {
             case .splash:
                 SplashView {
-                    flow = UserDefaults.standard.bool(forKey: "hasSeenOnboardings")
+                    flow = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
                         ? .main
                         : .onboarding
                 }

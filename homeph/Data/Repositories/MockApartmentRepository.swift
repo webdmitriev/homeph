@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 final class MockApartmentRepository: ApartmentRepository {
     func fetchApartments() async throws -> [Apartment] {
         try await Task.sleep(for: .milliseconds(600))
